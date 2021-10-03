@@ -15,7 +15,7 @@ models:
         description: "{{doc('order_status')}}"
         tests: 
           - accepted_values:
-              values: ['returned', 'completed', 'shipped', 'placed']
+              values: ['returned', 'completed', 'shipped', 'placed','return_pending']
       - name: customer_id
         tests:
           - relationships:
