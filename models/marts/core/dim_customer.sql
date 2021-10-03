@@ -38,4 +38,7 @@ final as (
 
 )
 
-select * from final
+select final.*, sum(fct_orders.amount) as lifetime_value from final
+left join {{ref('fct_orders')}} as fct_orders
+on final.customer_id = fct_orders.customer_id
+group by final.customer_id, first_name, last_name, first_order_date, most_recent_order_date, number_of_orders
